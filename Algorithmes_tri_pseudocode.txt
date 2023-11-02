@@ -1,0 +1,162 @@
+1) Tri à bulles:
+
+Procedure TriBulle(arr: Tableau de [1..100] de réel, n: entier)
+
+  Variables
+    i, j: entier
+    temp: réel
+
+  Debut
+
+      pour i de 1 à n faire
+        pour j de i+1 à n faire
+          si arr[i] >= arr[j] alors
+            temp <- arr[j]
+            arr[j] <- arr[i]
+            arr[i] <- temp
+          Fin si
+        Fin pour
+      Fin pour
+
+  Fin
+
+
+2) Tri par selection
+
+
+Procedure TriSelection(arr: Tableau de [1..100] de réel, n: entier)
+
+  Variables
+    i, j, minIndex: entier
+    temp: réel
+
+  Debut
+
+    pour i de 1 à n-1 faire
+      minIndex <- i
+      pour j de i+1 à n faire
+        si arr[j] <= arr[minIndex] alors
+          minIndex <- j
+        Fin si
+      Fin pour
+
+      temp <- arr[minIndex]
+      arr[minIndex] <- arr[i]
+      arr[i] <- temp
+    Fin pour
+
+  Fin
+
+
+3) Tri par insertion
+
+Procedure TriInsertion(arr: Tableau de [1..100] de réel, n: entier)
+
+  Variables
+    i, j: entier
+    element: réel
+
+  Debut
+
+    pour i de 1 à n-1 faire
+      element <- arr[i]
+      j <- i - 1
+
+      tant que j >= 1 et element <= arr[j] faire
+        arr[j+1] <- arr[j]
+        j <- j - 1
+      Fin tant que
+
+      arr[j+1] <- element
+    Fin pour
+
+  Fin
+
+
+
+
+4) Tri rapide
+
+  Fonction partition(arr: Tableau de [1..100] de réel, start: entier, end: entier): entier
+
+    Variables
+      i, j: entier
+      temp, pivot: réel
+
+    Debut
+
+      pivot <- arr[start]
+      i <- start
+      j <- end
+
+      tant que (i<j) faire
+
+        repeter
+          i <- i + 1
+        jusqu'à arr[i] >= pivot
+
+        repeter
+          j <- j - 1
+        jusqu'à arr[j] <= pivot
+
+        si i<j alors
+          temp <- arr[i]
+          arr[i] <- arr[j]
+          arr[j] <- temp
+        Fin si
+      Fin tant que
+
+      temp <- arr[start]
+      arr[start] <- arr[j]
+      arr[j] <- temp
+
+      partition <- j
+
+    Fin
+
+
+
+
+  Fonction TriRapide(arr: Tableau de [1..100] de réel, start: entier, end: entier, n: entier)
+
+    Variables
+      j: entier
+
+    Debut
+
+      si (start < end) et (start < n) alors
+        j <- partition(arr, start, end)
+        TriRapide(arr, start, j, n)
+        TriRapide(arr, j+1, end, n)
+      Fin si
+
+    Fin
+
+
+
+
+5) Tri fusion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
